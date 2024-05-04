@@ -3,12 +3,12 @@
 #include "task_g.h"
 
 int main(void) {
-    // Open the file "number.txt" for reading
+    // Open the file "numbers.txt" for reading
     FILE *inputFile = fopen("numbers.txt", "r");
     
     // Check if file opening failed
     if (!inputFile) {
-        printf("Unable to open the file.\n"); // Print error message
+        printf("Error!\n"); // Print error message
         return 1; // Return with error status
     }
 
@@ -26,7 +26,7 @@ int main(void) {
 
     // Check if fewer than 20 numbers were read
     if (numCount < 20) {
-        printf("Error: Insufficient data.\n"); // Print error message
+        printf("Error!\n"); // Print error message
         return 1; // Return with error status
     }
 
@@ -36,9 +36,9 @@ int main(void) {
 
     // Check if a valid number less than 10 was found
     if (maximum == -1) {
-        printf("Error: No valid number found.\n"); // Print error message
+        printf("Error!\n"); // Print error message
     } else {
-        printf("Maximum number less than 10: %.2f\n", maximum); // Print the maximum number found
+        printf("%.2f\n", maximum); // Print the maximum number found with 2 decimal places
     }
     
     return 0; // Return with success status
