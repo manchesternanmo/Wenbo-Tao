@@ -13,7 +13,7 @@ int main(void) {
         
         // Enter your code under here
         if (i >= N) { // Check if the filename exceeds 256 characters
-            printf("Error!"); //display error
+            printf("Error!");
             return EXIT_FAILURE;
         
     }
@@ -23,13 +23,12 @@ int main(void) {
         filename[i] = '\0';
     }
 
-    // Enter your code under here
+    
     char *ext = strrchr(filename, '.');
-    if (ext != NULL && *(ext + 1) != '\0') {  // Check if extension exists and is not empty
-        printf("%s", ext); // Print the file extension
+    if (ext != NULL && *(ext + 1) != '\0') { 
+        printf("%s", ext);
     } else {
-        printf("Error!"); // Print error message if no valid extension found
-    }
+        printf("Error!"); //display the error
     }
 
 
