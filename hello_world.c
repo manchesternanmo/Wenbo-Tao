@@ -1,6 +1,10 @@
-#include <stdio.h>
+#include<stdio.h>
+int main(void)   // function which is run when the programs starts 
 
-int main() {
-    printf("Hello. My email address is:\n%s\n", "wenbo.tao@student.manchester.ac.uk");
-    return 0;
+{ 
+
+printf("Hello. My email address is:\nwenbo.tao@student.manchester.ac.uk"); // our statement/command to run 
+
+    return 0; // the return statement for the function main 
+
 }
