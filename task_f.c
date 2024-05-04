@@ -1,35 +1,39 @@
+// Includes
 #include <stdio.h>
 #include <string.h>
-#include "domains.h" // Include the header file containing country domain information
+#include "domains.h" 
+
 
 // Main function 
 int main(void) {
-    #define DOMAIN_LEN 6 // Define the length of the domain input
-    char userInput[DOMAIN_LEN]; // Array to store user input
-    printf("Please enter a domain (e.g. .uk): "); // Prompt the user for input
-    fgets(userInput, DOMAIN_LEN, stdin); // Read user input including newline character
+    
+    // Read user input
+    #define LEN 4
+    char user_input[LEN];
+    printf("Enter a domain including the . (e.g. .uk): ");//display the domain
+    fgets(user_input, LEN, stdin);
+    
+	
+    // Enter your code under here
 
-    // Check if the first character is a dot
-    if (userInput[0] != '.') {
-        printf("Error! The first character entered should be a ."); // Display error message
-        return 1; // Exit with error status
+    if (user_input[0] != '.') {
+        printf("Error! The first character entered should be a .");//display the error
+        return 1; // Exit the program
     }
- 
- 
-    // Comparing the input with the country codes
-    int totalDomains = sizeof(country_codes) / sizeof(country_codes[0]); // Calculate the total number of domains
-    int isFound = 0; // Flag indicating if a match was found
-    for (int i = 0; i < totalDomains; i++) {
-        if (strcmp(userInput, country_codes[i].domain) == 0) { // Compare user input with domain list
-            printf("This is the domain for: %s", country_codes[i].country); // Print the corresponding country
-            isFound = 1; // Set flag to indicate match found
-            break; // Exit loop once a match is found
+    // Use strcmp(user_input, country_codes[0].domain) to compare the text in user_input to the text in country_codes[0].domain.
+    int total_domains = sizeof(country_codes) / sizeof(country_codes[0]);
+    int found = 0;  // Flag to indicate if a match was found
+    for (int i = 0; i < total_domains; i++) {
+        if (strcmp(user_input, country_codes[i].domain) == 0) {
+            printf("This is the domain for: %s", country_codes[i].country);
+            found = 1;
+            break;
         }
     }
 
-    if (!isFound) { // If no match found
-        printf("Domain not found."); // Print error message
+    if (!found) {
+        printf("Domain not found.");//if domain is not found, display the domain not founf
     }
-
-    return 0; // Return with success status
+    // Do not edit below here
+    return 0;
 }
