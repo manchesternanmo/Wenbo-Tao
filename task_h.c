@@ -24,9 +24,9 @@ int main(void) {
     }
 
     
-    char *ext = strrchr(filename, '.');
-    if (ext != NULL && *(ext + 1) != '\0') { 
-        printf("%s", ext);
+    char *ext = strrchr(filename, '.'); // Print the file extension
+    if (ext != NULL && *(ext + 1) != '\0') { // Check if extension exists and is not empty
+        printf("%s", ext); // Print the file extension
     } else {
         printf("Error!"); //display the error
     }
