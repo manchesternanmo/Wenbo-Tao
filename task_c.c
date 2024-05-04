@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    char my_email[] = "yujin.zhu@student.manchester.ac.uk";
+    char my_email[] = "wenbo.tao@student.manchester.ac.uk";
 
     int n; // Variable to store the user's input for index
 
