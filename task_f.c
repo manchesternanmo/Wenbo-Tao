@@ -3,7 +3,6 @@
 #include <string.h>
 #include "domains.h" 
 
-
 // Main function 
 int main(void) {
     
@@ -14,13 +13,15 @@ int main(void) {
     fgets(user_input, LEN, stdin);
     
 	
-    
+    // Enter your code under here
 
+    // Check if the first character is a dot
     if (user_input[0] != '.') {
         printf("Error! The first character entered should be a .");
         return 1; // Exit the program
     }
-    // Use strcmp(user_input, country_codes[0].domain) to compare the text in user_input to the text in country_codes[0].domain.
+    
+    // Compare user input with domain list
     int total_domains = sizeof(country_codes) / sizeof(country_codes[0]);
     int found = 0;  // Flag to indicate if a match was found
     for (int i = 0; i < total_domains; i++) {
@@ -31,9 +32,11 @@ int main(void) {
         }
     }
 
+    // If no match found
     if (!found) {
         printf("Domain not found.");
     }
+    
     // Do not edit below here
     return 0;
 }
