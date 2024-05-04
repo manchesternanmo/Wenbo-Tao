@@ -3,43 +3,35 @@
 #include "task_g.h"
 
 int main(void) {
-    // Open the file "numbers.txt" for reading
-    FILE *inputFile = fopen("numbers.txt", "r");
+    FILE *file = fopen("numbers.txt", "r");
+    if (!file) {
+        printf("Error!"); // Print error message if file opening fails
+        return 1;
+    }
+
+    double numbers[20]; // Array to store numbers from the file
+    int count = 0;
+
+    // Read 20 numbers from the file
+    while (count < 20 && fscanf(file, "%lf", &numbers[count]) == 1) {
+        count++;
+    }
+    fclose(file);
+
     
-    // Check if file opening failed
-    if (!inputFile) {
-        printf("Error!\n"); // Print error message
-        return 1; // Return with error status
+    if (count < 20) {
+        printf("Error!");
+        return 1;
     }
 
-    // Array to store numbers from the file
-    double numArray[20];
-    int numCount = 0;
+    double max;
+    find_max_less_than_10(numbers, count, &max);
 
-    // Read up to 20 numbers from the file
-    while (numCount < 20 && fscanf(inputFile, "%lf", &numArray[numCount]) == 1) {
-        numCount++; // Increment count of numbers read
-    }
-    
-    // Close the file
-    fclose(inputFile);
-
-    // Check if fewer than 20 numbers were read
-    if (numCount < 20) {
-        printf("Error!\n"); // Print error message
-        return 1; // Return with error status
-    }
-
-    // Find the maximum number less than 10
-    double maximum;
-    find_max_less_than_10(numArray, numCount, &maximum);
-
-    // Check if a valid number less than 10 was found
-    if (maximum == -1) {
-        printf("Error!\n"); // Print error message
+    if (max == -1) {  
+        printf("Error!"); // Print error message if no valid number less than 10 was found
     } else {
-        printf("%.2f\n", maximum); // Print the maximum number found with 2 decimal places
+        printf("%.2f", max); // Print the maximum number found with 2 decimal places
     }
-    
-    return 0; // Return with success status
+
+    return 0;
 }
