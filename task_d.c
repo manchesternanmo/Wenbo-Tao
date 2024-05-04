@@ -1,26 +1,31 @@
 #include <stdio.h>
-int main(void){
-    
-	double num;
-	FILE *fptr;
-	fptr = fopen("number.txt", "r");//open the file
-	if(fptr == NULL) { // display error if can't open file
-        printf("Error. Not able to open the file.");
-		return 1;
-        }
-	fscanf(fptr, "%lf", &num);
-	fclose(fptr);
-	
 
-	// Your code below here
-	printf("{\n");
-    printf("  \"name\": \"wenbo tao\",  \n");
-    printf("  \"email\": \"wenbo.tao@student.manchester.ac.uk\",     \n");
-    printf("  \"number1\": %.2f, \n", num);  // Print num formatted to 2 decimal places
-    printf("  \"number2\": %.3e\n", num);  // Print num in scientific notation with 3 digits after the decimal
-    printf("}\n");
-	
-	
-	// Do not edit below here
-	return 0;
+int main(void) {
+    double num; // Declare a variable to store the number read from the file
+    FILE *fptr; // Declare a file pointer
+    
+    // Open the file "number.txt" for reading
+    fptr = fopen("number.txt", "r");
+    
+    // Check if the file opening was successful
+    if(fptr == NULL) {
+        printf("Error: Unable to open the file."); // Display an error message if file opening fails
+        return 1; // Return with error status
+    }
+    
+    // Read a number from the file
+    fscanf(fptr, "%lf", &num);
+    
+    // Close the file
+    fclose(fptr);
+ 
+    // Print JSON output
+    printf("{\n");
+    printf(" \"name\": \"Wenbo Tao\",\n"); // Print name
+    printf(" \"email\": \"Wenbo.tao@student.manchester.ac.uk\",\n"); // Print email
+    printf(" \"number1\": %.2f,\n", num); // Print the number to 2 decimal places
+    printf(" \"number2\": %.3e\n", num); // Print the number in scientific notation with 3 digits after the decimal
+    printf("}\n"); 
+
+    return 0; // Return with success status
 }
