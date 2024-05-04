@@ -8,6 +8,12 @@ int main(void) {
     char userInput[DOMAIN_LEN]; // Array to store user input
     printf("Please enter a domain (e.g., .uk): "); // Prompt the user for input
     fgets(userInput, DOMAIN_LEN, stdin); // Read user input including newline character
+
+    // Check if the first character is a dot
+    if (userInput[0] != '.') {
+        printf("Error! The first character entered should be a .\n"); // Display error message
+        return 1; // Exit with error status
+    }
  
     // Remove the newline character from userInput
     userInput[strcspn(userInput, "\n")] = '\0';
@@ -17,7 +23,7 @@ int main(void) {
     int isFound = 0; // Flag indicating if a match was found
     for (int i = 0; i < totalDomains; i++) {
         if (strcmp(userInput, country_codes[i].domain) == 0) { // Compare user input with domain list
-            printf("The domain belongs to: %s\n", country_codes[i].country); // Print the corresponding country
+            printf("This is the domain for: %s\n", country_codes[i].country); // Print the corresponding country
             isFound = 1; // Set flag to indicate match found
             break; // Exit loop once a match is found
         }
