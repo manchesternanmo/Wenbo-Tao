@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <time.h>
 // Enter any other #includes that you deem necessary below
 
 
@@ -54,12 +55,15 @@ int main(void) {
 	for (i = 0; i < 9; i++)
 		puts(a[i]);
 
+    // Perform random walks and calculate results
+
 	char ch;
 	int flag = 0, direction;
 
 	while (flag == 0)
 	{
 		//ch = _getch();
+		srand((unsigned int)time(NULL));
 		direction = (rand()%(8-0) + 0);
 
 		ch = direc[direction];
@@ -234,19 +238,9 @@ int main(void) {
             }
 		}
 	}
+
+	// Print results
 	printf("the total path lenth is %d", count);
 	Sleep(5000);
 	return 0;
-
-
-
-    // Perform random walks and calculate results
-
-
-
-    // Print results
-
-
-
-    return 0;
 }
