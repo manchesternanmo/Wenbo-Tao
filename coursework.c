@@ -1,9 +1,9 @@
 // Add brief description here
 
 #include <stdio.h>
-#include<stdlib.h>
-#include<windows.h>
-#include<conio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <conio.h>
 // Enter any other #includes that you deem necessary below
 
 
@@ -17,19 +17,19 @@
 int main(void) {
 
     // Load the map
-    char a[9][10];
+    char a[NUMROWS][NUMCOLS+1];
 
     int m, n;
     FILE* fp;
     fp = fopen("island_map.txt", "r");
     if (fp == NULL)
     {
-        printf("error!\n");
+        printf("map error!\n");
         exit(0);
     }
-    for (m = 0; m < 9; m++)
+    for (m = 0; m < NUMROWS; m++)
     {
-        for (n = 0; n < 9; n++)
+        for (n = 0; n < NUMCOLS; n++)
         {
             fscanf(fp, "%s", &a[m][n]);
         }
@@ -74,7 +74,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -94,7 +94,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -114,7 +114,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -134,7 +134,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -156,7 +156,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -178,7 +178,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -200,7 +200,7 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
@@ -222,25 +222,25 @@ int main(void) {
 			else
             {
                 system("cls");
-                printf("�ɹ�����\n");
+                printf("make it off the island\n");
                 flag = 1;
                 for (i = 0; i < 9; i++)
                     puts(a[i]);
             }
 		}
 	}
-	printf("��һ������%d��", count);
+
+
+    // Perform random walks and calculate results
+    
+	printf("the total path lenth is %d", count);
 	Sleep(5000);
 	return 0;
 
 
 
-    // Perform random walks and calculate results
-
-
-
     // Print results
-    
+
 
 
     return 0;
