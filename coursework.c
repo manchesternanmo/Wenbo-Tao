@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-
+#include <windows.h>
+#include <conio.h>
 // Enter any other #includes that you deem necessary below
 
 
@@ -13,6 +13,7 @@
 #define NUMSTEP  10   // number of steps in each walk
 // Enter any other #defines as you deem necessary below
 
+char direc[8] = {'w','a','s','d','q','e','z','x'};
 
 int main(void) {
 
@@ -54,11 +55,15 @@ int main(void) {
 		puts(a[i]);
 
 	char ch;
-	int flag = 0;
+	int flag = 0, direction;
 
 	while (flag == 0)
 	{
-		ch = _getch();
+		//ch = _getch();
+		direction = (rand()%(8-0) + 0);
+
+		ch = direc[direction];
+		//printf("ch is %c",ch);
 		count++;
 		if (ch == 's')
 		{
@@ -229,13 +234,13 @@ int main(void) {
             }
 		}
 	}
-
-
-    // Perform random walks and calculate results
-    
 	printf("the total path lenth is %d", count);
 	Sleep(5000);
 	return 0;
+
+
+
+    // Perform random walks and calculate results
 
 
 
