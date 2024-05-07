@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+#include <math.h>
 #include <conio.h>
 // Enter any other #includes that you deem necessary below
 
